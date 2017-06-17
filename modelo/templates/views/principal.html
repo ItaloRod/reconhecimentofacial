@@ -2,13 +2,47 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-	<meta charset="utf-8">
-	<title>Principal</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/principal.css' %}">
-</head>
-<body>
-	<p>Parabéns, se você entrou aqui, significa que ele está funcionando. (XD)</p>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>Principal</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/principal.css' %}">
+	</head>
+	<body class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<a href="#baixo"><img class="img-responsive" style=" margin: 0 auto" src="{% static 'imagens/mod.png'%}"></a>
+			</div>
+		</div>
+		<hr  align="center" width="100%" size="1" >
+		<div class="row" id="baixo">
+			<div class="col-lg-12">
+				<div class="row meio2 dentro">
+					<div class="col-lg-12 quadro">
+						<a href="">
+							<div class="escolher">
+								<div class="row">
+									<div class="col-lg-12">
+										<img class="img-responsive tamanho" src="{% static 'imagens/icon.png'%}">
+									</div>
+									<div class="col-lg-12">
+										<p style="text-align: center; font-size: 25px;">Carregar imagem</p>
+									</div>
+								</div>
+							</div>	
+						</a>	
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="row meio2" >
+				<div class="col-lg-4 vai" >
+					<button class="btn  " style="float: right; background-color:  #004d4d;color: white">Carregar foto</button>
+				</div>
+				<div class="col-lg-4">
+					<button class="btn" style="float: left;margin-bottom: 20%; background-color:   #004d4d;color: white">Reconhecer</button>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

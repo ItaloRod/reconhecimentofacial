@@ -1,0 +1,54 @@
+.meio{
+	text-align: center;	
+}
+
+
+body{
+	  background-image: linear-gradient(black, white) ;
+	  height: 780px;
+}
+
+.cor{
+	color: white;
+}
+
+.quadro{
+	border: 10px ridge  #004d4d; 
+	width: 45%;
+	height: 400px;
+	margin-left: 27%;
+
+}
+
+.meio2{
+	margin: 0 auto;
+}
+
+.dentro{
+	padding: 5%;
+}
+
+.vai{
+	margin-left: 16%;
+}
+
+.escolher{
+	border: 2px dashed white;
+	width: 80%;
+	margin: 0 auto; 
+	margin-top: 18%;
+}
+
+.tamanho{
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+a{
+	color: white;
+}
+
+a:hover{
+	color: white;
+}
