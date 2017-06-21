@@ -35,13 +35,20 @@
 				</div>
 			</div>
 		</div>
+			
 			<div class="row meio2" >
 				<div class="col-lg-4 vai" >
-					<button class="btn  " style="float: right; background-color:  #004d4d;color: white">Carregar foto</button>
+					<button class="btn " style="float: right; background-color:  #004d4d;color: white">Carregar foto</button>
 				</div>
-				<div class="col-lg-4">
-					<button class="btn" style="float: left;margin-bottom: 20%; background-color:   #004d4d;color: white">Reconhecer</button>
-				</div>
+
+				{%block content%}
+				<form enctype = "multipart/form-data" method="POST"> {% csrf_token %}
+					{{form.as_p}}
+					<div class="col-lg-4">
+						<button class="btn" style="float: left;margin-bottom: 20%; background-color:   #004d4d;color: white">Reconhecer</button>
+					</div>
+				</form>
+				{%endblock%}
 			</div>
 		</div>
 	</body>
