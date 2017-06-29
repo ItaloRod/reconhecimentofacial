@@ -18,6 +18,7 @@ class Imagem(models.Model):
         self._middle = []
         self._lista_distancia = []
 
+
     def _marcarFace(self,color,cascade):
         elementos = cascade.detectMultiScale(self._gray,1.05,5,0)
         for (x,y,w,h) in elementos:
@@ -62,3 +63,4 @@ class Imagem(models.Model):
         cv2.imshow('img', self._img)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
+
