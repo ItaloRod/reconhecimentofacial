@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load static %}
+{% load bootstrap %}
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -14,7 +15,7 @@
 				<a href="#baixo"><img class="img-responsive" style=" margin: 0 auto" src="{% static 'imagens/mod.png'%}"></a>
 			</div>
 		</div>
-		<hr  align="center" width="100%" size="1" >
+		<hr  align="center" width="100%" size="1">
 		<div class="row" id="baixo">
 			<div class="col-lg-12">
 				<div class="row meio2 dentro">
@@ -35,10 +36,12 @@
 				</div>
 			</div>
 		</div>
-			{% bootstrap_button "Save" button_type="submit" button_class="btn-primary" %}
+
 			<div class="row meio2" >
 				<div class="col-lg-4 vai" >
-					<button class="btn " style="float: right; background-color:  #004d4d;color: white">Carregar foto</button>
+				{% buttons %}
+					<button class="btn" style="float: right; background-color:  #004d4d;color: white">Carregar foto</button>
+				{%endbuttons %}
 				</div>
 
 				{%block content%}
