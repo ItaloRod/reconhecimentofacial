@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'modelo',
     'bootstrap3',
+    'django_forms_bootstrap',
 ]
 
 MIDDLEWARE = [

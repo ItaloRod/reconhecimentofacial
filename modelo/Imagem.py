@@ -1,22 +1,22 @@
-from __future__ import unicode_literals
-from django.db import models
-import cv2
-#imagem = Imagem("happy.jpg")
-#imagem.marcarFace()
-#imagem.mostrarImagem()
+#_*_ coding: UTF-8 _*_
 
-class Imagem(models.Model):
-    face_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_frontalface_default.xml')
-    eye_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_eye.xml')
-    nose_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_mcs_nose.xml')
-    mouth_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_mcs_mouth.xml')
+from math import sqrt
+import numpy as np
+import cv2
+
+class Imagem:
+
+
 
     def __init__(self,imgpath):
         self._img = cv2.imread(imgpath)
         self._gray = cv2.cvtColor(self._img,cv2.COLOR_BGR2GRAY)
         self._middle = []
         self._lista_distancia = []
-
+        self.face_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_frontalface_default.xml')
+        self.eye_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_eye.xml')
+        self.nose_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_mcs_nose.xml')
+        self.mouth_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_mcs_mouth.xml')
 
     def _marcarFace(self,color,cascade):
         elementos = cascade.detectMultiScale(self._gray,1.05,5,0)
@@ -34,12 +34,12 @@ class Imagem(models.Model):
             yield (x+w/2,y+h/2)
 
     def marcarFace(self):
-        for (roi_gray, roi_color) in self._marcarFace((255, 0, 0), face_cascade):
-            for middle_element in self._marcarElementos(roi_color, roi_gray, (0, 255, 0), eye_cascade):
+        for (roi_gray, roi_color) in self._marcarFace((255, 0, 0), self.face_cascade):
+            for middle_element in self._marcarElementos(roi_color, roi_gray, (0, 255, 0), self.eye_cascade):
                 self._middle.append(middle_element)
-            for middle_element in self._marcarElementos(roi_color, roi_gray, (0, 0, 255), nose_cascade):
+            for middle_element in self._marcarElementos(roi_color, roi_gray, (0, 0, 255), self.nose_cascade):
                 self._middle.append(middle_element)
-            for middle_element in self._marcarElementos(roi_color, roi_gray, (0, 0, 0), mouth_cascade):
+            for middle_element in self._marcarElementos(roi_color, roi_gray, (0, 0, 0), self.mouth_cascade):
                 self._middle.append(middle_element)
             self._calcularDistancia(roi_color)
 
@@ -51,7 +51,6 @@ class Imagem(models.Model):
                    self._lista_distancia.append(sqrt((middle_element1[0] - middle_element2[0])** 2 + ((middle_element1[1] - middle_element2[1])** 2)))
                else:
                    break
-
     def compararImagens(self,img):
         total = 0
         for i in range(len(self._lista_distancia)):
@@ -63,3 +62,7 @@ class Imagem(models.Model):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
+    def SalvarImagem(self,path):
+        cv2.imwrite(path,self._img)
+
+#_main_
