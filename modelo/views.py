@@ -7,11 +7,11 @@ from PIL import Image
 # Create your views here.
 
 def salvarFoto(foto):
-    path = 'static/uploads/upload.jpg'
+    path = '/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/upload.jpg'
     with open(path, 'wb+') as wfoto:
         for chunk in foto.chunks():
             wfoto.write(chunk)
-    img = Imagem('modelo/static/uploads/upload.jpg')
+    img = Imagem('/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/upload.jpg')
     img.marcarFace()
     img.SalvarImagem(path)
     return path
