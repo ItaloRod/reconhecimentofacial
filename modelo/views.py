@@ -25,10 +25,12 @@ def index(request):
         if form.is_valid():
             foto = request.FILES['arquivo']
             data['path'] = salvarFoto(foto)
+            data['text'] = "Reconhecer outra foto"
             return render(request, 'views/principal.html',data)
     else:
         form = UploadImageForm()
     data['form'] = form
     data['path'] = None
+    data['text'] = "Reconhecer"
     return render(request, 'views/principal.html',data)
 
