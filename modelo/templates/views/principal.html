@@ -25,9 +25,9 @@
 								<div class="row">
 									{% if path is not None %}
 									<div class="col-lg-12">
-										<img class="img-responsive" src="{% static 'uploads/upload.jpg' %}">
+										<img class="img-responsive" src="{% static 'imagens\upload.jpg' %}">
 									</div>
-									{%endif%}
+									{% else %}
 								</div>
 							</div>	
 						</a>	
@@ -48,6 +48,7 @@
 				</form>
 				{%endblock%}
 			</div>
+			{%endif%}
 		</div>
 	</body>
 </html>
