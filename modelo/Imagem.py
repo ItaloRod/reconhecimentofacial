@@ -13,10 +13,10 @@ class Imagem:
         self._gray = cv2.cvtColor(self._img,cv2.COLOR_BGR2GRAY)
         self._middle = []
         self._lista_distancia = []
-        self.face_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_frontalface_default.xml')
-        self.eye_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_eye.xml')
-        self.nose_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_mcs_nose.xml')
-        self.mouth_cascade = cv2.CascadeClassifier('C:\opencv\sources\data\haarcascades\haarcascade_mcs_mouth.xml')
+        self.face_cascade = cv2.CascadeClassifier('/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/haarcascade_frontalface_default.xml')
+        self.eye_cascade = cv2.CascadeClassifier('/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/haarcascade_eye.xml')
+        self.nose_cascade = cv2.CascadeClassifier('/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/haarcascade_mcs_nose.xml')
+        self.mouth_cascade = cv2.CascadeClassifier('/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/haarcascade_mcs_mouth.xml')
 
     def _marcarFace(self,color,cascade):
         elementos = cascade.detectMultiScale(self._gray,1.05,5,0)
