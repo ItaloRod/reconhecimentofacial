@@ -7,7 +7,7 @@ from PIL import Image
 # Create your views here.
 
 def salvarFoto(foto):
-    path = 'home/projetoreconhecimentofacial/reconhecimentofacial/modelo/static/uploads/upload.jpg'
+    path = 'static/uploads/upload.jpg'
     with open(path, 'wb+') as wfoto:
         for chunk in foto.chunks():
             wfoto.write(chunk)
