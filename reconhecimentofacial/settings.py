@@ -25,7 +25,7 @@ SECRET_KEY = 'b--8f)fygu1uv*dvej8vwy9emg##&0c5!jv95$2f7t$i%p5d91'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [u'projetoreconhecimentofacial.pythonanywhere.com','127.0.0.1', 'localhost']
 
 
 # Application definition
