@@ -6,8 +6,6 @@ import cv2
 
 class Imagem:
 
-
-
     def __init__(self,imgpath):
         self._img = cv2.imread(imgpath)
         self._gray = cv2.cvtColor(self._img,cv2.COLOR_BGR2GRAY)
@@ -30,7 +28,7 @@ class Imagem:
         elementos = cascade.detectMultiScale(roi_gray,1.05,5,0)
         for (x, y, w, h) in elementos:
             cv2.rectangle(roi_color, (x, y), (x + w, y + h),color, 2)
-            roi_gray[y:y +h, x:x + w] = 0
+            roi_gray[0:y + h, 0:x + w] = 0
             yield (x+w/2,y+h/2)
 
     def marcarFace(self):
@@ -51,11 +49,15 @@ class Imagem:
                    self._lista_distancia.append(sqrt((middle_element1[0] - middle_element2[0])** 2 + ((middle_element1[1] - middle_element2[1])** 2)))
                else:
                    break
+
     def compararImagens(self,img):
         total = 0
         for i in range(len(self._lista_distancia)):
             total += (self._lista_distancia[i] - img._lista_distancia[i]) ** 2
         return sqrt(total)
+
+    def redimensionarImagem(self, dimensao):
+        self._img = cv2.resize(self._img, dimensao, interpolation=cv2.INTER_CUBIC)
 
     def mostrarImagem(self):
         cv2.imshow('img', self._img)

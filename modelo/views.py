@@ -13,10 +13,9 @@ def salvarFoto(foto):
             wfoto.write(chunk)
     img = Imagem('/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/upload.jpg')
     img.marcarFace()
+    img.redimensionarImagem((300,400))
     img.SalvarImagem(path)
     return path
-
-
 
 def index(request):
     data={}
