@@ -17,7 +17,7 @@ class Imagem:
         self.mouth_cascade = cv2.CascadeClassifier('/home/projetoreconhecimentofacial/reconhecimentofacial/static/imagens/haarcascade_mcs_mouth.xml')
 
     def _marcarFace(self,color,cascade):
-        elementos = cascade.detectMultiScale(self._gray,1.05,5,0)
+        elementos = cascade.detectMultiScale(self._gray,1.3,5,0)
         for (x,y,w,h) in elementos:
             cv2.rectangle(self._img,(x,y),(x+w,y+h),color,2)
             roi_gray = self._gray[y:y+h, x:x+w]
@@ -25,7 +25,7 @@ class Imagem:
             yield roi_gray,roi_color
 
     def _marcarElementos(self,roi_color,roi_gray,color, cascade):
-        elementos = cascade.detectMultiScale(roi_gray,1.05,5,0)
+        elementos = cascade.detectMultiScale(roi_gray,1.2,5,0)
         for (x, y, w, h) in elementos:
             cv2.rectangle(roi_color, (x, y), (x + w, y + h),color, 2)
             roi_gray[0:y + h, 0:x + w] = 0
